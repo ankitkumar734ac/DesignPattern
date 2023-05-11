@@ -22,7 +22,7 @@ import java.io.Serializable;
 /**
  * While the Singleton Design Pattern can be useful in certain scenarios, it also has some drawbacks that should be considered:
  * 1. Global state: By creating a single instance of a class that is accessible throughout the application, you introduce global state into your application. This can make it difficult to reason about the behavior of your code and can lead to unexpected side effects or race conditions.
- * 2.Reduced testability: Because the Singleton class is tightly coupled to other parts of your application, it can be difficult to test in isolation. This can make it harder to write unit tests or to mock dependencies when testing other parts of your application.
+ * 2. Reduced testability: Because the Singleton class is tightly coupled to other parts of your application, it can be difficult to test in isolation. This can make it harder to write unit tests or to mock dependencies when testing other parts of your application.
  * 3. Dependency management: Because the Singleton class is a shared resource, it can be difficult to manage dependencies between different parts of your application. Changes to the Singleton class can have unintended effects on other parts of the application, and it can be difficult to ensure that all dependencies are updated correctly.
  * 4. Thread safety: In a multi-threaded environment, the Singleton pattern can introduce race conditions or other concurrency issues. You may need to introduce additional synchronization or locking mechanisms to ensure that only one thread can access the Singleton instance at a time.
  * 5. Difficulty in extending the Singleton class: If you need to extend the Singleton class, you may run into difficulties because the constructor is private and cannot be called from outside the class. You may need to create a new class that extends the Singleton class and overrides its behavior, which can make your code more complex and harder to maintain.
@@ -35,7 +35,7 @@ public class Singleton  {
     private Singleton() {
         // Private constructor to prevent instantiation from outside the class
     }
-
+    //lazy initialization 
     public static Singleton getInstance() {
         if (instance == null) {
             instance = new Singleton();
