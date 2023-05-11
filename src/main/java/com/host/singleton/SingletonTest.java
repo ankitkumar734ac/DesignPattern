@@ -113,6 +113,23 @@ public class SingletonTest {
 		Object instance2 = constructor.newInstance();
 		System.out.println("Instance 2: " + instance2);
 	}
+	/**
+	 * To break the Singleton pattern by object cloning, you can override the clone() method in the Singleton class 
+	 * and provide an implementation that creates a new instance.
+	 * @Override
+	 * protected Object clone() throws CloneNotSupportedException {
+	 * 		return new Singleton();
+	 * }
+	 * The clone() method is overridden to create a new instance of the Singleton class using the constructor directly. 
+	 * This allows cloning to generate a new instance rather than returning the existing singleton instance.
+	 */
+	public static void breakSingletonByObjectCloning() {
+		//Singleton singleton1 = Singleton.getInstance();
+        //Singleton singleton2 = (Singleton) singleton1.clone();
+        
+        //System.out.println("singleton1: " + singleton1);
+        //System.out.println("singleton2: " + singleton2);
+	}
 
 	public static void main(String[] args) throws Exception {
 		// Normal Singleton
@@ -127,7 +144,7 @@ public class SingletonTest {
 
 //		breakSingletonBySerialization();
 
-		breakSingletonByClassloaders();
+//		breakSingletonByClassloaders();
 
 	}
 
