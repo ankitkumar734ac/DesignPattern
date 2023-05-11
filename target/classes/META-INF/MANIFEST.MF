@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: Ankit_Kumar
-Build-Jdk: 11
+Built-By: CA
+Build-Jdk: 19.0.2
 Created-By: Maven Integration for Eclipse
 
