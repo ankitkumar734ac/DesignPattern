@@ -1,0 +1,13 @@
+/target/
+# Maven build files
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+# Maven distribution files
+.DS_Store
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
