@@ -74,3 +74,30 @@ public class Product {
  * Method chaining: is a programming technique where multiple method calls are chained together in a single line of code.
  * Each method call is invoked on the return value of the previous method call, allowing for a concise and fluent syntax.
 */
+
+/**
+ * The Builder design pattern has several advantages and some limitations. 
+ * Here are the pros and cons of using the Builder design pattern:P
+ * Pros:
+ * 1.Provides a readable and fluent API for creating complex objects step by step.
+ * 2.Allows the creation of objects with different configurations using the same construction process.
+ * 3.Enhances code clarity and maintainability by separating the construction logic from the object's class.
+ * 4.Provides flexibility to add new construction steps or modify the existing ones without impacting client code.
+ * 5.Supports immutability by ensuring that the constructed object is in a consistent state.
+ * 
+ * Cons:
+ * 1.Increases code complexity by requiring the creation of additional classes/interfaces for the builder and its steps.
+ * 2.Requires more code compared to other creation patterns, which can be a drawback for simpler object creation scenarios.
+ * 3.May not be suitable for objects with a small number of properties or when the object creation process is straightforward.
+ * 4.Incur some performance overhead due to the involvement of multiple objects and method calls.
+ * 
+ * You should consider using the Builder pattern in your project when:
+ * 1.You need to create objects that involve multiple steps or have complex construction logic.
+ * 2.The object you want to create has a large number of optional parameters or configurations.
+ * 3.You want to provide a clear and readable API for object creation, especially when the number of constructor parameters becomes cumbersome.
+ * 4.You anticipate future changes or additions to the construction process without impacting client code.
+ * 
+ * However, if the object creation process is simple and straightforward, 
+ * and there are no anticipated changes or variations, using a builder pattern may introduce 
+ * unnecessary complexity. In such cases, simpler patterns like constructors or factory methods may be more appropriate.
+ */
