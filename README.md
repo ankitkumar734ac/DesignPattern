@@ -1,3 +1,3 @@
 # DesignPattern
-```python:src/main/java/com/host/singleton/Singleton.java
+```java:src/main/java/com/host/singleton/Singleton.java
 ```
