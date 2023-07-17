@@ -252,8 +252,76 @@ In this pattern, a single static method is used to create and return objects ins
 
 The main difference between the Static Factory Method and the Factory Method patterns is that in the Factory Method pattern, a separate Factory class is used to create objects, while in the Static Factory Method pattern, the creation of objects is encapsulated within a single static method of the object's class.
 
+`Example 3`
 
+```java
+// Transport interface
+interface Transport {
+    void deliver();
+}
+```
+```java
+// Truck class implementing Transport interface
+class Truck implements Transport {
+    @Override
+    public void deliver() {
+        System.out.println("Delivering by truck.");
+        // Add truck-specific delivery logic here
+    }
+}
+```
+```java
+// Sea class implementing Transport interface
+class Sea implements Transport {
+    @Override
+    public void deliver() {
+        System.out.println("Delivering by sea.");
+        // Add sea-specific delivery logic here
+    }
+}
+```
+```java
+// TransportFactory interface
+interface TransportFactory {
+    Transport createTransport();
+}
 
+```
+```java
+// TruckFactory implementing TransportFactory
+class TruckFactory implements TransportFactory {
+    @Override
+    public Transport createTransport() {
+        return new Truck();
+    }
+}
+
+// SeaFactory implementing TransportFactory
+class SeaFactory implements TransportFactory {
+    @Override
+    public Transport createTransport() {
+        return new Sea();
+    }
+}
+
+```
+```java
+public class LogisticsManagementApp {
+    public static void main(String[] args) {
+        // Create a TruckFactory to handle truck transportation
+        TransportFactory truckFactory = new TruckFactory();
+        Transport truck = truckFactory.createTransport();
+        truck.deliver();
+
+        // Create a SeaFactory to handle sea transportation
+        TransportFactory seaFactory = new SeaFactory();
+        Transport sea = seaFactory.createTransport();
+        sea.deliver();
+    }
+}
+
+```
+With the Factory Design Pattern, you can easily add new transportation types (e.g., air, rail) by creating corresponding classes and factories without modifying existing code. This makes the application more flexible and maintainable as it continues to grow and incorporate new features.
 
 
 
