@@ -309,6 +309,7 @@ This example showcases how the Abstract Factory pattern allows for the creation 
 
 
 
-
+## Note
+In summary, the Factory Design Pattern is suitable when you have a single factory producing a few product variants, while the Abstract Factory Design Pattern is more appropriate when you need multiple factories producing entire families of related objects, supporting a more flexible and extensible design.
 
 
