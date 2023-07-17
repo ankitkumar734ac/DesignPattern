@@ -312,4 +312,161 @@ This example showcases how the Abstract Factory pattern allows for the creation 
 ## Note
 In summary, the Factory Design Pattern is suitable when you have a single factory producing a few product variants, while the Abstract Factory Design Pattern is more appropriate when you need multiple factories producing entire families of related objects, supporting a more flexible and extensible design.
 
+`Example 3`
+Create the abstract product interfaces for Chair, Sofa, and CoffeeTable:
+```java
+// Abstract Product: Chair
+interface Chair {
+    void sit();
+}
+
+// Abstract Product: Sofa
+interface Sofa {
+    void sit();
+}
+
+// Abstract Product: CoffeeTable
+interface CoffeeTable {
+    void placeCoffee();
+}
+```
+Create concrete product implementations for each product family:
+```java
+// Concrete Product: VictorianChair
+class VictorianChair implements Chair {
+    @Override
+    public void sit() {
+        System.out.println("You are sitting on a Victorian chair.");
+    }
+}
+
+// Concrete Product: VictorianSofa
+class VictorianSofa implements Sofa {
+    @Override
+    public void sit() {
+        System.out.println("You are sitting on a Victorian sofa.");
+    }
+}
+
+// Concrete Product: VictorianCoffeeTable
+class VictorianCoffeeTable implements CoffeeTable {
+    @Override
+    public void placeCoffee() {
+        System.out.println("You placed a coffee cup on a Victorian coffee table.");
+    }
+}
+
+// Concrete Product: ModernChair
+class ModernChair implements Chair {
+    @Override
+    public void sit() {
+        System.out.println("You are sitting on a Modern chair.");
+    }
+}
+
+// Concrete Product: ModernSofa
+class ModernSofa implements Sofa {
+    @Override
+    public void sit() {
+        System.out.println("You are sitting on a Modern sofa.");
+    }
+}
+
+// Concrete Product: ModernCoffeeTable
+class ModernCoffeeTable implements CoffeeTable {
+    @Override
+    public void placeCoffee() {
+        System.out.println("You placed a coffee cup on a Modern coffee table.");
+    }
+}
+```
+Create the abstract factory interface for creating furniture products:
+```java
+// Abstract Factory: FurnitureFactory
+interface FurnitureFactory {
+    Chair createChair();
+    Sofa createSofa();
+    CoffeeTable createCoffeeTable();
+}
+```
+Create concrete factory implementations for each furniture style:
+```java
+// Concrete Factory: VictorianFurnitureFactory
+class VictorianFurnitureFactory implements FurnitureFactory {
+    @Override
+    public Chair createChair() {
+        return new VictorianChair();
+    }
+
+    @Override
+    public Sofa createSofa() {
+        return new VictorianSofa();
+    }
+
+    @Override
+    public CoffeeTable createCoffeeTable() {
+        return new VictorianCoffeeTable();
+    }
+}
+
+// Concrete Factory: ModernFurnitureFactory
+class ModernFurnitureFactory implements FurnitureFactory {
+    @Override
+    public Chair createChair() {
+        return new ModernChair();
+    }
+
+    @Override
+    public Sofa createSofa() {
+        return new ModernSofa();
+    }
+
+    @Override
+    public CoffeeTable createCoffeeTable() {
+        return new ModernCoffeeTable();
+    }
+}
+```
+Create the FurnitureShop class that will use the abstract factory to create furniture products:
+```java
+// Client: FurnitureShop
+public class FurnitureShop {
+    private FurnitureFactory furnitureFactory;
+
+    public FurnitureShop(FurnitureFactory furnitureFactory) {
+        this.furnitureFactory = furnitureFactory;
+    }
+
+    public void orderFurniture() {
+        Chair chair = furnitureFactory.createChair();
+        Sofa sofa = furnitureFactory.createSofa();
+        CoffeeTable coffeeTable = furnitureFactory.createCoffeeTable();
+
+        chair.sit();
+        sofa.sit();
+        coffeeTable.placeCoffee();
+    }
+}
+```
+Finally, create the main class to run the simulation:
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Create a Victorian style furniture shop
+        FurnitureFactory victorianFactory = new VictorianFurnitureFactory();
+        FurnitureShop victorianShop = new FurnitureShop(victorianFactory);
+        System.out.println("Ordering furniture in Victorian style:");
+        victorianShop.orderFurniture();
+
+        System.out.println();
+
+        // Create a Modern style furniture shop
+        FurnitureFactory modernFactory = new ModernFurnitureFactory();
+        FurnitureShop modernShop = new FurnitureShop(modernFactory);
+        System.out.println("Ordering furniture in Modern style:");
+        modernShop.orderFurniture();
+    }
+}
+```
+
 
